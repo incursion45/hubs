@@ -1,8 +1,11 @@
 import Store from "./storage/store";
 import MediaSearchStore from "./storage/media-search-store";
+import SlipSpaceManger from './slipspace/SlipSpaceManger';
+
 
 export class App {
   constructor() {
+    this.SlipSpaceManger = new SlipSpaceManger('https://slipspace.app/');
     this.scene = null;
     this.store = new Store();
     this.mediaSearchStore = new MediaSearchStore();
