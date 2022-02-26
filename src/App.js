@@ -5,7 +5,9 @@ import SlipSpaceManger from './slipspace/SlipSpaceManger';
 
 export class App {
   constructor() {
-    this.SlipSpaceManger = new SlipSpaceManger('https://slipspace.app/');
+    
+    this.SlipSpaceManger = new SlipSpaceManger('https://slipspace.app/',
+      window.location.pathname.split("/").pop());
     this.scene = null;
     this.store = new Store();
     this.mediaSearchStore = new MediaSearchStore();
