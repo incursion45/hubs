@@ -46,7 +46,10 @@ AFRAME.registerComponent("open-media-button", {
       const exitImmersive = async () => await handleExitTo2DInterstitial(false, () => {}, true);
 
       let hubId;
-      if (this.data.onlyOpenLink) {
+      if(this.src?.toString()?.indexOf('slipspace.app') ?? -1 > 0){
+        await exitImmersive();
+        location.href = this.src;
+      } else if (this.data.onlyOpenLink) {
         await exitImmersive();
         window.open(this.src);
       } else if (await isLocalHubsAvatarUrl(this.src)) {
